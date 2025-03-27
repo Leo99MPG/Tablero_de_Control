@@ -24,74 +24,9 @@ if (!isset($_SESSION[PRIVILEGIO_APP])) {
 
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
 		integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-	<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
 	<link rel="stylesheet" href="css/datatable.css">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
-
-
-	<!--######################### SCRIPT QUE LAS FUNCIONES DE LOS MODALES ################################-->
-	<script>
-		/* EL AJAX DENTRO DEL SCRIPT SE UTILIZA PARA FUNCIONAR EL MODAL_DROPDOWN */
-		function getfetch(val) {
-			$.ajax({
-				type: "POST",
-				url: "funciones_fetch/fetch.php",
-				data: 'dep_id=' + val,
-				success: function(data) {
-					$("#dependencia").html(data);
-				}
-			});
-		}
-
-
-		$(document).ready(function() {
-
-			/* ######SCRIPT PARA RELACIONAR LOS DOS DROPDOWNS DENTRO DEL MODAL_DROPDOWN##### */
-			$('#EvaluacionModal').on('shown.bs.modal', function() {
-				let selectedValue = $('#tipo_dependencia').val();
-				if (selectedValue) {
-					getfetch(selectedValue);
-				}
-			});
-
-			/* ######SCRIPT QUE CONTIENE EL CÓDIGO DEL MODAL DE ELIMINAR DATOS####### */
-			/* deletebtn hace referencia a la clase del icono de eliminar registros */
-			$('.deletebtn').on('click', function() {
-				$('#DeleteModal').modal('show');
-				$tr = $(this).closest('tr');
-				var data = $tr.children("td").map(function() {
-					return $(this).text();
-				}).get();
-				console.log(data);
-				/* La id delete_id corresponde a la id del form en el modal de eliminar datos */
-				$('#delete_id').val(data[0]);
-			});
-
-
-			/* ######SCRIPT QUE CONTIENE EL CÓDIGO DEL MODAL DE MODIFICACIÓN DE DATOS DATOS####### */
-			/* editbtn hace referencia a la clase del icono de modificar registros */
-			$('.editbtn').on('click', function() {
-				$('#EditModal').modal('show');
-				$tr = $(this).closest('tr');
-				var data = $tr.children("td").map(function() {
-					return $(this).text();
-				}).get();
-				console.log(data);
-				/* La id update_id corresponde a la input dentro del form del modal de modificar_datos */
-				$('#update_id').val(data[0]);
-				$('#edit_entidad').val(data[1]);
-				$('#edit_periodo').val(data[2]);
-				$('#edit_presidente').val(data[3]);
-				$('#edit_cumplimiento').val(data[4]);
-				$('#edit_desempeño').val(data[5]);
-				$('#edit_calificacion').val(data[6]);
-
-			})
-
-		});
-	</script>
 </head>
 
 <body>
@@ -120,6 +55,7 @@ if (!isset($_SESSION[PRIVILEGIO_APP])) {
 				<!-- BARRA DE SELECCIÓN (Se utiliza el código php para colocar todas las entidades
 					en la barra de selección) -->
 				<select id="selectEntePublico" class="form-select">
+					<option value="0">Seleccione una dependencia</option>
 					<?php
 					include 'private/conec_identidad_secont.php';
 					$query = 'SELECT * FROM cat_dependencias';
@@ -211,8 +147,8 @@ if (!isset($_SESSION[PRIVILEGIO_APP])) {
 
 
 			<script src="js/datatables.js"></script>
-			<script src="https://code.jquery.com/jquery-3.3.1.js">
-			</script>
+			<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+			<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
 			<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 			<script src="https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js"></script>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
@@ -224,6 +160,8 @@ if (!isset($_SESSION[PRIVILEGIO_APP])) {
 
 		</div> <!--====  End of LIBRERIAS JS PARA AGREAR BOTONES A DATATABLE  ====-->
 	</div>
+	<!-- SCRIPT CON LAS FUNCIONES PARA LOS MODALES EN JS Y JQUERY -->
+	<script src="js/index.js"></script>
 </body>
 
 </html>
