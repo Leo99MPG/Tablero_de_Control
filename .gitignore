@@ -1,12 +1,7 @@
 /logs/*.*
 /files/*.*
-css/
-images/*.*
-img/*.*
-login.php
-logout.php
-modal_dropdown.php
-modal_editar.php
-modal_eliminar.php
-private/
-user/
+/private/fpdf181/*.*
+/private/PHPExcel/*.*
+/private/PHPMailer/*.*
+/images/*.*
+/img/*.*
