@@ -25,33 +25,10 @@ if (!isset($_SESSION[PRIVILEGIO_APP])) {
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
     <link rel="stylesheet" href="css/datatable.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
-
-
-    //SCRIPT PARA EL FUNCIONAMIENTO DE LOS MODALES Y BOTONES
-    <script>
-        $(document).ready(function() {
-            $("#tableroPeriodo").on('change', function() {
-                if ($(this).val() == "0")
-                    $("#btnEvaluacion").attr('hidden', true),
-                    $("#btnPeriodo").attr('hidden', false)
-                else
-                    $("#btnPeriodo").attr('hidden', true),
-                    $("#btnEvaluacion").attr('hidden', false)
-            });
-
-            $("#btnPeriodo").on('click', function() {
-                $("#modalPeriodo").modal('show');
-            });
-
-
-
-        });
-    </script>
 
 </head>
 
@@ -96,7 +73,59 @@ if (!isset($_SESSION[PRIVILEGIO_APP])) {
 
         </div>
 
+
         <?php include "modal_tableroCumplimiento.php"; ?>
+        <?php include "modal_editarTablero.php"; ?>
+
+
+
+
+        <div class="row justify-content-center" style="padding-top: 60px;">
+            <div class="col">
+                <!-- TABLA -->
+                <table id="myTable" class="display">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Actividad</th>
+                            <th>Documento/Acción</th>
+                            <th>Fecha Limite de Cumplimiento</th>
+                            <th>Fecha limite de Entrega a SECONT</th>
+                            <th>Máximo de puntos</th>
+                            <th>Opciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $sql = "SELECT ID_ACTIVIDAD_CUMP, DESCRIPCION_ACTIVIDAD,
+                            DOCUMENTO_ACCION, FECHA_LIMITE_CUMPLIMIENTO,
+                            FECHA_LIMITE_ENTREGA_SECONT, PUNTO_MAXIMOS FROM `actividad_cumplimiento`";
+                        $result = mysqli_query($conexion_tablero, $sql);
+                        if ($result) {
+                            while ($row = mysqli_fetch_array($result)) {
+                        ?>
+                                <tr>
+                                    <td><?php echo $row['ID_ACTIVIDAD_CUMP'] ?></td>
+                                    <td><?php echo $row['DESCRIPCION_ACTIVIDAD'] ?></td>
+                                    <td><?php echo $row['DOCUMENTO_ACCION'] ?></td>
+                                    <td><?php echo $row['FECHA_LIMITE_CUMPLIMIENTO'] ?></td>
+                                    <td><?php echo $row['FECHA_LIMITE_ENTREGA_SECONT'] ?></td>
+                                    <td><?php echo $row['PUNTO_MAXIMOS'] ?></td>
+                                    <td>
+                                        <a href=""><i class="fas fa-tasks mx-1 text-dark"></i></a>
+                                        <a href="#" id="btn_editTab" class="mx-1"><i class="fas fa-edit mx-1 text-primary"></i></a>
+                                        <a href="#" id="deletebtn"><i class="fas fa-trash mx-1 text-danger"></i></a>
+                                    </td>
+                                </tr>
+                        <?php
+                            }
+                        } ?>
+                    </tbody>
+
+                </table>
+
+            </div>
+        </div>
 
 
 
@@ -127,7 +156,7 @@ if (!isset($_SESSION[PRIVILEGIO_APP])) {
 
         <!--====  End of LIBRERIAS JS PARA AGREAR BOTONES A DATATABLE  ====-->
     </div>
-
+<script src="js/tableroCumplimiento.js"></script>
 </body>
 
 </html>
