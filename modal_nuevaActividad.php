@@ -13,14 +13,14 @@
     <div class="container">
 
         <!-- Modal -->
-        <div class="modal fade" id="modalPeriodo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="false">
-            <div class="modal-dialog">
-                <div class="modal-content">
+        <div class="modal fade" id="modalActividad" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="false">
+            <div class="modal-dialog" >
+                <div class="modal-content bg-info-subtle">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5 text-left" id="exampleModalLabel">Nuevo Periodo</h1>
+                        <h1 class="modal-title fs-5 text-left" id="exampleModalLabel" style="margin-bottom: 1px black-solid;">Nuevo Actividad</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body ">
                         <select name="modalPeriodo" id="modal_nuevoPeriodo">
                             <option value="0">Seleccione un periodo</option>
                             <?php

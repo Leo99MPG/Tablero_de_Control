@@ -68,7 +68,7 @@ if (!isset($_SESSION[PRIVILEGIO_APP])) {
 
             <div class="col-md-2">
                 <button class="btn btn-success" id="btnPeriodo">Nuevo Periodo</button>
-                <button class="btn btn-primary" id="btnEvaluacion">Agregar Actividad</button>
+                <button class="btn btn-primary" id="btnActividad">Agregar Actividad</button>
             </div>
 
         </div>
@@ -76,6 +76,7 @@ if (!isset($_SESSION[PRIVILEGIO_APP])) {
 
         <?php include "modal_tableroCumplimiento.php"; ?>
         <?php include "modal_editarTablero.php"; ?>
+        <?php include "modal_nuevaActividad.php"; ?>
 
 
 
@@ -104,7 +105,7 @@ if (!isset($_SESSION[PRIVILEGIO_APP])) {
                         if ($result) {
                             while ($row = mysqli_fetch_array($result)) {
                         ?>
-                                <tr>
+                                <tr id="tableroRow">
                                     <td><?php echo $row['ID_ACTIVIDAD_CUMP'] ?></td>
                                     <td><?php echo $row['DESCRIPCION_ACTIVIDAD'] ?></td>
                                     <td><?php echo $row['DOCUMENTO_ACCION'] ?></td>
