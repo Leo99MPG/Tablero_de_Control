@@ -15,7 +15,7 @@
         <!-- Modal -->
         <div class="modal fade" id="modalPeriodo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="false">
             <div class="modal-dialog">
-                <div class="modal-content">
+                <div class="modal-content bs-success-bg-subtle">
                     <div class="modal-header">
                         <h1 class="modal-title fs-5 text-left" id="exampleModalLabel">Nuevo Periodo</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
