@@ -38,5 +38,5 @@ $(document).ready(function () {
         $("#modalActividad").modal('show');
     });
 
-
+    $("#btnActividad").attr('hidden', true);
 });
