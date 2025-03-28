@@ -14,24 +14,49 @@
 
         <!-- Modal -->
         <div class="modal fade" id="modalActividad" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="false">
-            <div class="modal-dialog" >
+            <div class="modal-dialog modal-lg modal-fullscreen-lg-down">
                 <div class="modal-content bg-info-subtle">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5 text-left" id="exampleModalLabel" style="margin-bottom: 1px black-solid;">Nuevo Actividad</h1>
+                        <h1 class="modal-title fs-5 text-left" id="exampleModalLabel" style="margin-bottom: 1px black-solid;">Nueva Actividad</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body ">
-                        <select name="modalPeriodo" id="modal_nuevoPeriodo">
-                            <option value="0">Seleccione un periodo</option>
-                            <?php
-                            
-                            $query = "SELECT * FROM periodo_tablero_cumplimiento";
-                            $result = mysqli_query($conexion_tablero, $query);
-                            while ($row = mysqli_fetch_assoc($result)) { ?>
-                                <option value="<?php echo $row['ID_PERIODO_TABLERO_CUMP'] ?>"><?php echo $row['PERIODO'] ?></option>
-                            <?php }
-                            ?>
-                        </select>
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <div class="row form-group">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text col-md-4 bg-info-subtle" id="basic-addon1">Actividad:</span>
+                                    <input type="text" id='NewActivity' class="form-control" placeholder="Teclee Actividad..." aria-label="Username" aria-describedby="basic-addon1">
+
+                                </div>
+                            </div>
+
+                            <div class="row form-group">
+                                <p>Documento/Acción:</p>
+                                <textarea name="" id="actividadArea" placeholder="Teclee Documento o Accion" style="height: 100px;"></textarea>
+                            </div>
+
+                            <div class='row'>
+                                <p class="col-md-6 justify-content-left"> Fecha limite de Cumplimiento</p>
+                                <p class="col-md-6 justify-content-right"> Fecha limite de Entrega a SECONT</p>
+                            </div>
+
+                            <div class="row form-group">
+                                <div class="col-md-6">
+                                    <input type="date" id='fechaCumplimiento' class="form-control" placeholder="Fecha Limite de Cumplimiento" aria-label="Username" aria-describedby="basic-addon1">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="date" id='fechaEntrega' class="form-control" placeholder="Fecha Limite de Entrega a SECONT" aria-label="Username" aria-describedby="basic-addon1">
+                                </div>
+                            </div>
+
+                            <div class='row form-group' style="padding-top: 10px;">
+                                <div class="input-group-sm mb-3">
+                                    <span class="input-group-text col-md-4 bg-info-subtle" id="basic-addon1">Máximo de Puntos:</span>
+                                    <input type="number" id='NewPuntos' class="form-control" placeholder="Puntos..." aria-label="Username" aria-describedby="basic-addon1">
+                                    
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="modal-footer">
