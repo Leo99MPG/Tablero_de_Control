@@ -22,46 +22,46 @@
                     </div>
                     <div class="modal-body">
                         <div class="container-fluid">
-                            <div class="row form-group">
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text col-md-4 bg-info-subtle" id="basic-addon1">Actividad:</span>
-                                    <input type="text" id='NewActivity' class="form-control" placeholder="Teclee Actividad..." aria-label="Username" aria-describedby="basic-addon1">
+                            <form id="form_actividad" method="POST" action="funciones_fetch\fetch_nuevaActividad.php">
 
+                                <div id='advertencia'></div>
+
+                                <div class="row form-group">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text col-md-4 bg-info-subtle" id="basic-addon1">Actividad:</span>
+                                        <input type="text" id='NewActivity' name='NewActivity' class="form-control" placeholder="Teclee Actividad..." aria-label="Username" aria-describedby="basic-addon1" required>
+                                    </div>
                                 </div>
-                            </div>
-
-                            <div class="row form-group">
-                                <p>Documento/Acción:</p>
-                                <textarea name="" id="actividadArea" placeholder="Teclee Documento o Accion" style="height: 100px;"></textarea>
-                            </div>
-
-                            <div class='row'>
-                                <p class="col-md-6 justify-content-left"> Fecha limite de Cumplimiento</p>
-                                <p class="col-md-6 justify-content-right"> Fecha limite de Entrega a SECONT</p>
-                            </div>
-
-                            <div class="row form-group">
-                                <div class="col-md-6">
-                                    <input type="date" id='fechaCumplimiento' class="form-control" placeholder="Fecha Limite de Cumplimiento" aria-label="Username" aria-describedby="basic-addon1">
+                                <div class="row form-group">
+                                    <p>Documento/Acción:</p>
+                                    <textarea name="" id="actividadArea" name="actividadArea" placeholder="Teclee Documento o Accion" style="height: 100px;" required></textarea>
                                 </div>
-                                <div class="col-md-6">
-                                    <input type="date" id='fechaEntrega' class="form-control" placeholder="Fecha Limite de Entrega a SECONT" aria-label="Username" aria-describedby="basic-addon1">
+                                <div class='row'>
+                                    <p class="col-md-6 justify-content-left"> Fecha limite de Cumplimiento</p>
+                                    <p class="col-md-6 justify-content-right"> Fecha limite de Entrega a SECONT</p>
                                 </div>
-                            </div>
+                                <div class="row form-group">
+                                    <div class="col-md-6">
+                                        <input type="date" id='fechaCumplimiento' name='fechaCumplimiento' class="form-control" placeholder="Fecha Limite de Cumplimiento" aria-label="Username" aria-describedby="basic-addon1" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="date" id='fechaEntrega' name='fechaEntrega' class="form-control" placeholder="Fecha Limite de Entrega a SECONT" aria-label="Username" aria-describedby="basic-addon1" required>
+                                    </div>
+                                </div>
+                                <div class='row form-group' style="padding-top: 10px;">
+                                    <div class="input-group-sm mb-3">
+                                        <span class="input-group-text col-md-4 bg-info-subtle" id="basic-addon1">Máximo de Puntos:</span>
+                                        <input type="text" id='NewPuntos' name='NewPuntos' class="form-control" placeholder="Puntos..." aria-label="Username" aria-describedby="basic-addon1" required>
 
-                            <div class='row form-group' style="padding-top: 10px;">
-                                <div class="input-group-sm mb-3">
-                                    <span class="input-group-text col-md-4 bg-info-subtle" id="basic-addon1">Máximo de Puntos:</span>
-                                    <input type="number" id='NewPuntos' class="form-control" placeholder="Puntos..." aria-label="Username" aria-describedby="basic-addon1">
-                                    
+                                    </div>
                                 </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        <button type="button" class="btn btn-primary" id="btn-Guardar">Guardar</button>
+                        <button type="submit" class="btn btn-primary" id="btn-guardarActividad" name="guardarActividad">Guardar</button>
                     </div>
                 </div>
             </div>

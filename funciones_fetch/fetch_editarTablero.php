@@ -2,6 +2,7 @@
 include_once "../private/conec_tableroCumplimiento.php";
 
 //EDITAR LA DATA DE UNA ACTIVIDAD
+//name del boton guardar del modal editar tablero
 if (isset($_POST['editTablero'])) {
 
 //El post de los variable son los nombres de los campos del select en el modal_editarTablero.php
