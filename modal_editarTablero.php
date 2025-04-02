@@ -8,7 +8,7 @@
 <body>
     
 <div class="container">
-        <div class="modal fade" id="modal_editTablero" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="modal_editTablero" tabindex="-1" aria-labelledby="exampleModalLabel">
             <div class="modal-dialog">
                 <div class="modal-content bs-success-bg-subtle">
                     <div class="modal-header">

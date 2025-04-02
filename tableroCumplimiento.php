@@ -76,6 +76,7 @@ if (!isset($_SESSION[PRIVILEGIO_APP])) {
 
         <?php include "modal_tableroCumplimiento.php"; ?>
         <?php include "modal_editarTablero.php"; ?>
+        <?php include "modal_eliminarTablero.php"; ?>
         <?php include "modal_nuevaActividad.php"; ?>
 
 
@@ -115,7 +116,7 @@ if (!isset($_SESSION[PRIVILEGIO_APP])) {
                                     <td>
                                         <a href=""><i class="fas fa-tasks mx-1 text-dark"></i></a>
                                         <a href="#" id="btn_editTab" class="mx-1"><i class="fas fa-edit mx-1 text-primary"></i></a>
-                                        <a href="#" id="deletebtn"><i class="fas fa-trash mx-1 text-danger"></i></a>
+                                        <a href="#" id="btn_eliminarTab"><i class="fas fa-trash mx-1 text-danger"></i></a>
                                     </td>
                                 </tr>
                         <?php

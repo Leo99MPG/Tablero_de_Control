@@ -64,7 +64,7 @@ if (!isset($_SESSION[PRIVILEGIO_APP])) {
 						<option value="<?php echo $dep['ID_DEPENDENCIA'] ?>"><?php echo $dep['NOMBRE_DEPENDENCIA'] ?></option>
 					<?php } ?>
 
-					
+
 
 				</select>
 			</div>
