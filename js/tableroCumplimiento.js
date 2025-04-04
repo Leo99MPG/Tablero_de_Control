@@ -40,10 +40,9 @@ $(document).ready(function () {
     });
 
 
-
-
+    
     //////////////////////MOSTRAR MODAL PARA ELIMINAR TABLERO//////////////////////
-    $('#btn_eliminarTab').click(function () {
+    $('#eliminarTab').click(function () {
         $('#deleteTablero').modal('show');
         $tr = $(this).closest('tr');
         var data = $tr.children("td").map(function () {
@@ -55,36 +54,45 @@ $(document).ready(function () {
     });
 
 
+   
+
+
+    ////////////////////////REALIZAR EL CAMBIO DE PERIODO MEDIANTE EL BOTON NUEVO PERIODO//////////////////////
+    $('#btn-Guardar').on('click', function () {
+        var periodo = $('#modal_nuevoPeriodo').val();
+        $('#modalPeriodo').modal('hide');
+        $('#tableroPeriodo').val(periodo);
+        $('#btnActividad').attr('hidden', false);
+        $('#btnPeriodo').attr('hidden', true);
+
+    });
 
 
 
 
 
+    ////////////////////////REALIZAR EL ENVIO DEL FORMULARIO DE NUEVO PERIODO A LA BASE DE DATOS//////////////////////
 
 
-
-
-
-    //Realizar el envio del formulario de nueva actividad a la base de datos
     $('#btn-guardarActividad').on('click', function () {
         var DESCRIPCION_ACTIVIDAD = $('#NewActivity').val();
         var DOCUMENTO_ACCION = $('#actividadArea').val();
         var FECHA_LIMITE_CUMPLIMIENTO = $('#fechaCumplimiento').val();
         var FECHA_LIMITE_ENTREGA_SECONT = $('#fechaEntrega').val();
-        var PUNTO_MAXIMOS = $('#NewPuntos').val(); 
+        var PUNTO_MAXIMOS = $('#NewPuntos').val();
 
         $.ajax({
             url: 'funciones_fetch/fetch_nuevaActividad.php',
             type: 'POST',
             data: {
-                 DESCRIPCION_ACTIVIDAD: DESCRIPCION_ACTIVIDAD,
+                DESCRIPCION_ACTIVIDAD: DESCRIPCION_ACTIVIDAD,
                 DOCUMENTO_ACCION: DOCUMENTO_ACCION,
                 FECHA_LIMITE_CUMPLIMIENTO: FECHA_LIMITE_CUMPLIMIENTO,
                 FECHA_LIMITE_ENTREGA_SECONT: FECHA_LIMITE_ENTREGA_SECONT,
-                PUNTO_MAXIMOS: PUNTO_MAXIMOS 
+                PUNTO_MAXIMOS: PUNTO_MAXIMOS
             },
             success: function (response) {
-                
+
                 // Aquí puedes manejar la respuesta del servidor
                 // Por ejemplo, puedes mostrar un mensaje de éxito o error
                 // dependiendo del valor de response

@@ -106,7 +106,7 @@ if (!isset($_SESSION[PRIVILEGIO_APP])) {
                         if ($result) {
                             while ($row = mysqli_fetch_array($result)) {
                         ?>
-                                <tr id="tableroRow">
+                                <tr>
                                     <td><?php echo $row['ID_ACTIVIDAD_CUMP'] ?></td>
                                     <td><?php echo $row['DESCRIPCION_ACTIVIDAD'] ?></td>
                                     <td><?php echo $row['DOCUMENTO_ACCION'] ?></td>
@@ -116,7 +116,7 @@ if (!isset($_SESSION[PRIVILEGIO_APP])) {
                                     <td>
                                         <a href=""><i class="fas fa-tasks mx-1 text-dark"></i></a>
                                         <a href="#" id="btn_editTab" class="mx-1"><i class="fas fa-edit mx-1 text-primary"></i></a>
-                                        <a href="#" id="btn_eliminarTab"><i class="fas fa-trash mx-1 text-danger"></i></a>
+                                        <a href="#" id="eliminarTab"><i class="fas fa-trash mx-1 text-danger"></i></a>
                                     </td>
                                 </tr>
                         <?php

@@ -21,6 +21,10 @@
                     <a class="nav-link active" aria-current="page" href="index.php">Inicio</a>
                 </li>
 
+                <li>
+                    <a class="nav-link active" aria-current="page" href="tableroCumplimiento.php">Tablero Cumplimiento</a>
+                </li>
+
                 <!--    Si es un ADMINISTRADOR podra observar el Menú AGREGAR   -->  
                 <?php 
                     if( false && $_SESSION[PRIVILEGIO_APP] > PRIVILEGIO_CAPTURISTA ){

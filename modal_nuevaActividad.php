@@ -22,7 +22,7 @@
                     </div>
                     <div class="modal-body">
                         <div class="container-fluid">
-                            <form id="form_actividad" method="POST" action="funciones_fetch\fetch_nuevaActividad.php">
+                            <form id="form_actividad" method="post" action="funciones_fetch/fetch_nuevaActividad.php">
 
                                 <div id='advertencia'></div>
 
@@ -46,13 +46,12 @@
                                     </div>
                                     <div class="col-md-6">
                                         <input type="date" id='fechaEntrega' name='fechaEntrega' class="form-control" placeholder="Fecha Limite de Entrega a SECONT" aria-label="Username" aria-describedby="basic-addon1" required>
-                                    </div>
+                                    </div> 
                                 </div>
                                 <div class='row form-group' style="padding-top: 10px;">
                                     <div class="input-group-sm mb-3">
                                         <span class="input-group-text col-md-4 bg-info-subtle" id="basic-addon1">Máximo de Puntos:</span>
-                                        <input type="text" id='NewPuntos' name='NewPuntos' class="form-control" placeholder="Puntos..." aria-label="Username" aria-describedby="basic-addon1" required>
-
+                                        <input type="number" id='NewPuntos' name='NewPuntos' class="form-control" placeholder="Puntos..." aria-label="Username" aria-describedby="basic-addon1" size="4", maxlength="4">
                                     </div>
                                 </div>
                             </form>
