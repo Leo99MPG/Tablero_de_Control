@@ -1,3 +1,4 @@
+
 $(document).ready(function () {
 
     //////////////////////ESCONDER LOS BOTONES DE ACTIVIDAD Y PERIODO//////////////////////
@@ -23,7 +24,7 @@ $(document).ready(function () {
     });
 
     //////////////////////MOSTRAR MODAL PARA EDITAR LOS DATOS DE UNA ACTIVIDAD//////////////////////
-    $('#btn_editTab').click(function () {
+    $('.btn_editTab').click(function () {
         $('#modal_editTablero').modal('show');
         $tr = $(this).closest('tr');
         var data = $tr.children("td").map(function () {
@@ -42,7 +43,7 @@ $(document).ready(function () {
 
     
     //////////////////////MOSTRAR MODAL PARA ELIMINAR TABLERO//////////////////////
-    $('#eliminarTab').click(function () {
+    $('.eliminarTab').click(function () {
         $('#deleteTablero').modal('show');
         $tr = $(this).closest('tr');
         var data = $tr.children("td").map(function () {
@@ -97,6 +98,7 @@ $(document).ready(function () {
                 // Por ejemplo, puedes mostrar un mensaje de éxito o error
                 // dependiendo del valor de response
                 // Puedes usar una alerta o mostrar un mensaje en el modal 
+               
                 if (response.statusCode == 200) {
                     $('#advertencia').text("Actividad registrada correctamente").addClass("justify-content-center text-center bg-success-subtle").removeClass("bg-danger-subtle");
                     setTimeout(function () {
@@ -105,8 +107,9 @@ $(document).ready(function () {
                     }, 2000);
                 } else {
                     $('#advertencia').text("Error al registrar la actividad").addClass("justify-content-center text-center bg-danger-subtle").removeClass("bg-success-subtle");
+                    console.log("Error al registrar la actividad");
                 }
-            },
+            }
         });
     });
 

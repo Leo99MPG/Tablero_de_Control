@@ -48,12 +48,12 @@ if (!isset($_SESSION[PRIVILEGIO_APP])) {
             </div>
         </div>
 
-        <div class="row justify-content-center">
+        <div class="row justify-content-center" style="padding-bottom: 20px;">
             <div class="col-md-2">
                 <h4>Periodo:</h4>
             </div>
 
-            <div class=col-md-5>
+            <div class="col-md-5" >
                 <select class="form-select" id="tableroPeriodo">
                     <option value="0">Elija Periodo</option>
                     <?php
@@ -81,51 +81,53 @@ if (!isset($_SESSION[PRIVILEGIO_APP])) {
 
 
 
+        <div class="container">
 
-        <div class="row justify-content-center" style="padding-top: 60px;">
-            <div class="col">
-                <!-- TABLA -->
-                <table id="myTable" class="display">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Actividad</th>
-                            <th>Documento/Acción</th>
-                            <th>Fecha Limite de Cumplimiento</th>
-                            <th>Fecha limite de Entrega a SECONT</th>
-                            <th>Máximo de puntos</th>
-                            <th>Opciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        $sql = "SELECT ID_ACTIVIDAD_CUMP, DESCRIPCION_ACTIVIDAD,
-                            DOCUMENTO_ACCION, FECHA_LIMITE_CUMPLIMIENTO,
-                            FECHA_LIMITE_ENTREGA_SECONT, PUNTO_MAXIMOS FROM `actividad_cumplimiento`";
-                        $result = mysqli_query($conexion_tablero, $sql);
-                        if ($result) {
-                            while ($row = mysqli_fetch_array($result)) {
-                        ?>
-                                <tr>
-                                    <td><?php echo $row['ID_ACTIVIDAD_CUMP'] ?></td>
-                                    <td><?php echo $row['DESCRIPCION_ACTIVIDAD'] ?></td>
-                                    <td><?php echo $row['DOCUMENTO_ACCION'] ?></td>
-                                    <td><?php echo $row['FECHA_LIMITE_CUMPLIMIENTO'] ?></td>
-                                    <td><?php echo $row['FECHA_LIMITE_ENTREGA_SECONT'] ?></td>
-                                    <td><?php echo $row['PUNTO_MAXIMOS'] ?></td>
-                                    <td>
-                                        <a href=""><i class="fas fa-tasks mx-1 text-dark"></i></a>
-                                        <a href="#" id="btn_editTab" class="mx-1"><i class="fas fa-edit mx-1 text-primary"></i></a>
-                                        <a href="#" id="eliminarTab"><i class="fas fa-trash mx-1 text-danger"></i></a>
-                                    </td>
-                                </tr>
-                        <?php
-                            }
-                        } ?>
-                    </tbody>
+            <div class="row justify-content-center">
+                <div class="col">
+                    <!-- TABLA -->
+                    <table id="myTable" class="display">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Actividad</th>
+                                <th>Documento/Acción</th>
+                                <th>Fecha Limite de Cumplimiento</th>
+                                <th>Fecha limite de Entrega a SECONT</th>
+                                <th>Máximo de puntos</th>
+                                <th>Opciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $sql = "SELECT ID_ACTIVIDAD_CUMP, DESCRIPCION_ACTIVIDAD,
+                                DOCUMENTO_ACCION, FECHA_LIMITE_CUMPLIMIENTO,
+                                FECHA_LIMITE_ENTREGA_SECONT, PUNTO_MAXIMOS FROM `actividad_cumplimiento`";
+                            $result = mysqli_query($conexion_tablero, $sql);
+                            if ($result) {
+                                while ($row = mysqli_fetch_array($result)) {
+                            ?>
+                                    <tr>
+                                        <td><?php echo $row['ID_ACTIVIDAD_CUMP'] ?></td>
+                                        <td><?php echo $row['DESCRIPCION_ACTIVIDAD'] ?></td>
+                                        <td><?php echo $row['DOCUMENTO_ACCION'] ?></td>
+                                        <td><?php echo $row['FECHA_LIMITE_CUMPLIMIENTO'] ?></td>
+                                        <td><?php echo $row['FECHA_LIMITE_ENTREGA_SECONT'] ?></td>
+                                        <td><?php echo $row['PUNTO_MAXIMOS'] ?></td>
+                                        <td>
+                                            <a href=""><i class="fas fa-tasks mx-1 text-dark"></i></a>
+                                            <a href="#" class="btn_editTab" ><i class="fas fa-edit mx-1 text-primary"></i></a>
+                                            <a href="#" class="eliminarTab"><i class="fas fa-trash mx-1 text-danger"></i></a>
+                                        </td>
+                                    </tr>
+                            <?php
+                                }
+                            } ?>
+                        </tbody>
 
-                </table>
+                    </table>
 
+                </div>
             </div>
         </div>
 
@@ -158,7 +160,7 @@ if (!isset($_SESSION[PRIVILEGIO_APP])) {
 
         <!--====  End of LIBRERIAS JS PARA AGREAR BOTONES A DATATABLE  ====-->
     </div>
-<script src="js/tableroCumplimiento.js"></script>
+    <script src="js/tableroCumplimiento.js"></script>
 </body>
 
 </html>

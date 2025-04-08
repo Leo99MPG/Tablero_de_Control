@@ -82,8 +82,8 @@ if (!isset($_SESSION[PRIVILEGIO_APP])) {
 
 			<!-- TABLA QUE SE MUESTRA EN LA PAGINA WEB -->
 			<div class="container">
-				<div class="row justify-content-center">
-					<div class="col">
+				<div class="row justify-content-center" style="padding-top: 20px;">
+					<div class="col-md-10">
 						<!-- TABLA -->
 						<table id="myTable" class="display">
 							<thead>
