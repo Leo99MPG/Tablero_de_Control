@@ -81,7 +81,7 @@ if (!isset($_SESSION[PRIVILEGIO_APP])) {
 
 
 
-        <div class="container">
+        <div>
 
             <div class="row justify-content-center">
                 <div class="col">

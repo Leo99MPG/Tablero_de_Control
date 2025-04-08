@@ -41,7 +41,7 @@ $(document).ready(function () {
     });
 
 
-    
+
     //////////////////////MOSTRAR MODAL PARA ELIMINAR TABLERO//////////////////////
     $('.eliminarTab').click(function () {
         $('#deleteTablero').modal('show');
@@ -55,7 +55,7 @@ $(document).ready(function () {
     });
 
 
-   
+
 
 
     ////////////////////////REALIZAR EL CAMBIO DE PERIODO MEDIANTE EL BOTON NUEVO PERIODO//////////////////////
@@ -98,7 +98,7 @@ $(document).ready(function () {
                 // Por ejemplo, puedes mostrar un mensaje de éxito o error
                 // dependiendo del valor de response
                 // Puedes usar una alerta o mostrar un mensaje en el modal 
-               
+
                 if (response.statusCode == 200) {
                     $('#advertencia').text("Actividad registrada correctamente").addClass("justify-content-center text-center bg-success-subtle").removeClass("bg-danger-subtle");
                     setTimeout(function () {
@@ -113,11 +113,30 @@ $(document).ready(function () {
         });
     });
 
+
+
+    ////////////////////////USAR EL DROPDOWN COMO UN FILTRO//////////////////////
+    $('#tableroPeriodo').on('change', function () {
+        var value = $(this).val();
+        $.ajax({
+            url: 'funciones_fetch/fetch_filtroTablero.php',
+            type: 'POST',
+            data: 'request=' + value,
+            beforeSend: function () {
+                $('.container').html('<tr><td colspan="5" class="text-center">Cargando...</td></tr>');
+            },
+            success: function (data) {
+                $('.container').html(data);
+            },
+        });
+
+
+
+    });
+
     ////////////////////////ESCONDER EL BOTON DE NUEVA ACTIVIDAD//////////////////////
     $("#btnActividad").attr('hidden', true);
 
 });
-
-
 
 
