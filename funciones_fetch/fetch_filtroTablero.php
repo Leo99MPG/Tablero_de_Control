@@ -10,53 +10,52 @@ if (isset($_POST['request'])) {
 ?>
 
 
-    <table id="myTable" clas="display">
-        <?php
-        if ($col) {
-        ?>
-            <thead>
-                <tr>
-                    <th>Actividad</th>
-                    <th>Responsable</th>
-                    <th>Fecha Inicio</th>
-                    <th>Fecha Fin</th>
-                    <th>Estado</th>
-                    <th>Acciones</th>
-                </tr>
+    
+        <div class="justify-content-center">
             <?php
-        } else {
-            echo "No hay registros del presente periodo";
-        }
+            if ($col) {
             ?>
-            </thead>
-
-            <tbody>
-                <?php
-
-                while ($row = mysqli_fetch_array($result)) {
-                ?>
+                <thead>
                     <tr>
-                        <td><?php echo $row['ID_ACTIVIDAD_CUMP'] ?></td>
-                        <td><?php echo $row['DESCRIPCION_ACTIVIDAD'] ?></td>
-                        <td><?php echo $row['DOCUMENTO_ACCION'] ?></td>
-                        <td><?php echo $row['FECHA_LIMITE_CUMPLIMIENTO'] ?></td>
-                        <td><?php echo $row['FECHA_LIMITE_ENTREGA_SECONT'] ?></td>
-                        <td><?php echo $row['PUNTO_MAXIMOS'] ?></td>
-                        <td>
-                            <a href=""><i class="fas fa-tasks mx-1 text-dark"></i></a>
-                            <a href="#" class="btn_editTab"><i class="fas fa-edit mx-1 text-primary"></i></a>
-                            <a href="#" class="eliminarTab"><i class="fas fa-trash mx-1 text-danger"></i></a>
-                        </td>
+                        <th>#</th>
+                        <th>Actividad</th>
+                        <th>Documento/Acción</th>
+                        <th>Fecha Limite de Cumplimiento</th>
+                        <th>Fecha Limite de Entrega a SECONT</th>
+                        <th>Máximo Puntos</th>
+                        <th>Opciones</th>
                     </tr>
                 <?php
-                }
+            } else {
+                echo "No hay registros del presente periodo";
+            }
                 ?>
-            </tbody>
+                </thead>
+                <tbody>
+                    <?php
+                    while ($row = mysqli_fetch_array($result)) {
+                    ?>
+                        <tr>
+                            <td><?php echo $row['ID_ACTIVIDAD_CUMP'] ?></td>
+                            <td><?php echo $row['DESCRIPCION_ACTIVIDAD'] ?></td>
+                            <td><?php echo $row['DOCUMENTO_ACCION'] ?></td>
+                            <td><?php echo $row['FECHA_LIMITE_CUMPLIMIENTO'] ?></td>
+                            <td><?php echo $row['FECHA_LIMITE_ENTREGA_SECONT'] ?></td>
+                            <td><?php echo $row['PUNTO_MAXIMOS'] ?></td>
+                            <td>
+                                <a href=""><i class="fas fa-tasks mx-1 text-dark"></i></a>
+                                <a href="#" class="btn_editTab"><i class="fas fa-edit mx-1 text-primary"></i></a>
+                                <a href="#" class="eliminarTab"><i class="fas fa-trash mx-1 text-danger"></i></a>
+                            </td>
+                        </tr>
+                    <?php
+                    }
+                    ?>
+                </tbody>
+        </div>
 
 
-
-
-    </table>
+    
 
 <?php
 }

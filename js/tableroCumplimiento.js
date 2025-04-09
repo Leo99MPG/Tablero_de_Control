@@ -117,16 +117,14 @@ $(document).ready(function () {
 
     ////////////////////////USAR EL DROPDOWN COMO UN FILTRO//////////////////////
     $('#tableroPeriodo').on('change', function () {
+        
         var value = $(this).val();
         $.ajax({
             url: 'funciones_fetch/fetch_filtroTablero.php',
             type: 'POST',
             data: 'request=' + value,
-            beforeSend: function () {
-                $('.container').html('<tr><td colspan="5" class="text-center">Cargando...</td></tr>');
-            },
             success: function (data) {
-                $('.container').html(data);
+                $('#myTable').html(data);
             },
         });
 
