@@ -9,6 +9,7 @@ define("PASSWORD_DB_IDENTIDAD_MYSQL","");
 
 //CONFIGURACION SERVIDOR DISTRIBUCION
 
+
 $conexion_tablero = mysqli_connect( HOST_DB_IDENTIDAD_MYSQL, USER_DB_IDENTIDAD_MYSQL, PASSWORD_DB_IDENTIDAD_MYSQL ) or 
                             die ("No se ha podido conectar al servidor de Base de datos");
 

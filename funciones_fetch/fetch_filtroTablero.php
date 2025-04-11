@@ -3,14 +3,19 @@
 include "../private/conec_tableroCumplimiento.php";
 
 if (isset($_POST['request'])) {
+    //request se localiza dentro del tableroCumplimiento.js, este hace referencia al ajax su parametro data, que es el valor de 
+    //el select de la variable tableroPeriodo, que es el id del periodo seleccionado en el tableroCumplimiento.php
+    //en este caso el valor de la variable $periodo es el id del periodo seleccionado en el select del tableroCumplimiento.php
     $periodo = $_POST['request'];
+    //Query para haceer el filtro
     $query = "SELECT * FROM actividad_cumplimiento WHERE ID_PERIODO_TABLERO_CUMP='$periodo'";
+    //Query para contar el numero de filas que tiene la consulta, si no hay filas entonces no se ejecuta el resto del codigo
     $result = mysqli_query($conexion_tablero, $query);
     $col = mysqli_num_rows($result);
 ?>
 
 
-    
+   <!--  Este segmento es casi el mismo que el segmento de la tabla de dataTable en el tableroCumpimiento.php, solo se añade la el ciclo if de la varable $col -->
         <div class="justify-content-center">
             <?php
             if ($col) {
